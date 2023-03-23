@@ -1,0 +1,16 @@
+# Local folders with PDFs
+Bibliografía/
+Guías/
+
+# Local Config & Format
+.flake8
+.vscode/
+.env
+pyrightconfig.json
+
+# Local Anaconda Environments
+mefe_env/
+
+# Cache & Checkpoints
+.ipynb_checkpoints/
+__pycache__/
