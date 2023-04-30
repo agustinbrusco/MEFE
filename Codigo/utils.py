@@ -2,7 +2,10 @@ from typing import Optional
 import numpy as np
 import matplotlib.pyplot as plt
 
-RNG = np.random.default_rng(42)  # La respuesta a la pregunta de la vida, el universo y todo lo demás
+RNG = np.random.default_rng(
+    # 42,  # La respuesta a la pregunta de la vida, el universo y todo lo demás
+    42784436,  # El de arriba me dió números feos, este es mejor aunque no tan místico
+)
 
 
 def simular_experimentos_bernoulli(n_experimentos: int, p_exito: float) -> int:
@@ -106,8 +109,10 @@ def plot_discrete_stem(
     *,
     ax: Optional[plt.Axes] = None,
     label: Optional[str] = None,
+    marker: Optional[str] = "h",
     color: Optional[str] = "#ffd30c",
     linecolor: Optional[str] = "k",
+    alpha: Optional[float] = None,
     zorder: Optional[int] = None,
 ) -> None:
     """Plots a discrete distribution as a stem plot.
@@ -123,9 +128,13 @@ variable aleatoria.
 
         `label {str, optional}`: Etiqueta para la leyenda del gráfico.
 
+        `marker {str, optional}`: Marcador para los puntos del gráfico.
+
         `color {str, optional}`: Color de las barras del gráfico.
 
         `linecolor {str, optional}`: Color de las lineas del gráfico.
+
+        `alpha {float, optional}`: Transparencia de los puntos y lineas del gráfico.
 
         `zorder {int, optional}`: Orden de las barras en las lineas del gráfico.
 
@@ -135,10 +144,11 @@ variable aleatoria.
         y=probability_values,
         label=label,
         s=30,
-        marker="h",
+        marker=marker,
         color=color,
         edgecolors=linecolor,
         linewidths=0.5,
+        alpha=alpha,
         zorder=zorder,
     )
     vlines_kwargs = dict(
@@ -148,6 +158,7 @@ variable aleatoria.
         linestyle="--",
         linewidth=0.75,
         colors=linecolor,
+        alpha=alpha,
         zorder=(zorder - 1),
     )
     if ax is None:
