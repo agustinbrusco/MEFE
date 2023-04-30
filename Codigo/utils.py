@@ -39,6 +39,7 @@ def plot_discrete_hist(
     color: Optional[str] = "#8222d2",
     ecolor: Optional[str] = "#1b1752",
     edgecolor: Optional[str] = "black",
+    alpha: Optional[float] = None,
     zorder: Optional[int] = None,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Calcula y grafica un histograma de los valores en `data` agregando barras de \
@@ -59,6 +60,8 @@ histograma.
         `ecolor {str, optional}`: Color de las barras de error del gráfico.
 
         `edgecolor {str, optional}`: Color de los bordes de las barras del gráfico.
+
+        `alpha {float, optional}`: Transparencia de las barras del gráfico.
 
         `zorder {int, optional}`: Orden de las barras en las lineas del gráfico.
 
@@ -82,7 +85,7 @@ cada bin.
         yerr=(bin_errors / data.size),
         label=label,
         align="center",
-        alpha=0.75,
+        alpha=alpha,
         width=1,  # Dado que los datos son discretos, el ancho de las barras es 1
         linewidth=0.5,
         color=color,
@@ -93,6 +96,7 @@ cada bin.
             capthick=1,
             ecolor=ecolor,
             elinewidth=2,
+            alpha=alpha,
             zorder=(zorder + 1),
         ),
     )
