@@ -31,7 +31,7 @@ def simular_experimentos_bernoulli(n_experimentos: int, p_exito: float) -> int:
     return resultados.sum()
 
 
-def plot_discrete_hist(
+def histograma_discreto(
     data: np.ndarray,
     *,
     ax: Optional[plt.Axes] = None,
@@ -107,7 +107,7 @@ cada bin.
     return bin_centers, counts, bin_errors
 
 
-def plot_discrete_stem(
+def grafico_de_tallo(
     variable_values: np.ndarray,
     probability_values: np.ndarray,
     *,
