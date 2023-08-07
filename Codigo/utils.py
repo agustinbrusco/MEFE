@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 RNG = np.random.default_rng(
     # 42,  # La respuesta a la pregunta de la vida, el universo y todo lo demás
-    42784436,  # El de arriba me dió números feos, este es mejor aunque no tan místico
+    2022,  # El de arriba me dió números feos, este es mejor aunque no tan místico
 )
 
 
@@ -38,6 +38,8 @@ def histograma_discreto(
     label: Optional[str] = None,
     color: Optional[str] = "#8222d2",
     ecolor: Optional[str] = "#1b1752",
+    elinewidth: Optional[float] = 2,
+    ecapsize: Optional[float] = 5,
     edgecolor: Optional[str] = "black",
     alpha: Optional[float] = None,
     zorder: Optional[int] = None,
@@ -92,12 +94,12 @@ cada bin.
         edgecolor=edgecolor,
         zorder=zorder,
         error_kw=dict(
-            capsize=5,
+            capsize=ecapsize,
             capthick=1,
             ecolor=ecolor,
-            elinewidth=2,
+            elinewidth=elinewidth,
             alpha=alpha,
-            zorder=(zorder + 1),
+            zorder=(zorder + 1) if zorder is not None else None,
         ),
     )
     if ax is None:
